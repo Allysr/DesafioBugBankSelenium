@@ -19,31 +19,6 @@ public class RegisterTask {
         this.loginPage = new LoginPage(this.driver);
     }
 
-//    public void register(UserFactory user) throws InterruptedException {
-////        loginPage.getRegisterButton().click();
-//        registerPage.getEmail().sendKeys(user.getEmail());
-//        registerPage.getName().sendKeys(user.getName());
-//        registerPage.getPassword().sendKeys(user.getPassword());
-//        registerPage.getPasswordConfirmation().sendKeys(user.getConfirmPassword());
-//        registerPage.getToggle().click();
-//        Thread.sleep(3000);
-//        registerPage.getRegisterButton().click();
-//        String registerText = registerPage.getModalAccountText();
-//        String[] removeSpaces = registerText.split(" ");
-//        String[] removeHyphen = removeSpaces[2].split("-");
-//
-//        String number = removeHyphen[0];
-//        String id = removeHyphen[1];
-//
-//        user.setAccountNumber(number);
-//        user.setId(id);
-//
-//        Assertions.assertEquals("A conta " + removeSpaces[2] + " foi criada com sucesso", registerText);
-//
-//        registerPage.getCloseButton().click();
-//
-//    }
-
     public void clickRegisterButton () {
         loginPage.getRegisterButton().click();
     }
