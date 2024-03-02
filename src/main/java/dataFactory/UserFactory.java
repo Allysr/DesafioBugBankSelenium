@@ -1,11 +1,13 @@
 package dataFactory;
 
+import java.math.BigDecimal;
+
 public class UserFactory {
     private String email;
     private String name;
     private String password;
     private String confirmPassword;
-    private Float balance;
+    private BigDecimal balance;
 
     private String accountNumber;
     private String id;
@@ -25,18 +27,20 @@ public class UserFactory {
         this.accountNumber = accountNumber;
     }
 
-    public String getId() {
-        return id;
-    }
-
     public void setId(String id) {
         this.id = id;
     }
 
-    public Float getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
+    public void setBalance(BigDecimal balance) {
+        this.balance = balance;
+    }
+    public String getId() {
+        return id;
+    }
 
     public String getEmail() {
         return email;

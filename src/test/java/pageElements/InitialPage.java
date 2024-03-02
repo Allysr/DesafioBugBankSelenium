@@ -1,4 +1,4 @@
-package pageObjects;
+package pageElements;
 
 import browser.Waits;
 import org.openqa.selenium.By;
@@ -9,7 +9,6 @@ import org.openqa.selenium.WebElement;
 public class InitialPage {
 
     private WebDriver driver;
-
     private Waits waits;
 
     public InitialPage(WebDriver driver){
