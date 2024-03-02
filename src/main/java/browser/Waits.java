@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Sleeper;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -26,6 +27,14 @@ public class Waits {
             return new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOf(elemento));
         }catch (WebDriverException e){
             return elemento;
+        }
+    }
+
+    public static void fixedWaits(int timeout){
+        try {
+            Sleeper.SYSTEM_SLEEPER.sleep(Duration.ofSeconds(timeout));
+        }catch (InterruptedException e){
+            e.printStackTrace();
         }
     }
 }
