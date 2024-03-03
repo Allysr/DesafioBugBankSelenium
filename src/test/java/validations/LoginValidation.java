@@ -1,12 +1,7 @@
 package validations;
 
-import dataFactory.UserFactory;
-import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import pageElements.InitialPage;
-import pageElements.LoginPage;
-import pageTask.InitialTask;
-import pageTask.LoginTask;
 
 public class LoginValidation {
 

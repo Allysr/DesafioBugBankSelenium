@@ -27,10 +27,10 @@ public class RegisterPage {
         return driver.findElement(By.name("passwordConfirmation"));
     }
     public WebElement getRegisterButton(){
-        return  waits.visibilityOfElement(By.xpath("//button[text()='Cadastrar']"));
+       return driver.findElement(By.cssSelector("button.style__ContainerButton-sc-1wsixal-0.CMabB.button__child"));
     }
     public WebElement getToggle() {
-        return driver.findElement(By.id("toggleAddBalance"));
+        return driver.findElement(By.xpath("//label[@id='toggleAddBalance']"));
     }
     public WebElement getModalAccountText() {
         return waits.visibilityOfElement(By.id("modalText"));

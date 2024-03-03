@@ -16,7 +16,7 @@ public class LoginPage {
         return driver.findElement(By.name("password"));
     }
     public WebElement getAccessButton(){
-        return driver.findElement(By.xpath("//button[text()='Acessar']"));
+        return driver.findElement(By.xpath("//button[contains(text(),'Acessar')]"));
     }
     public WebElement getRegisterButton() {
         return driver.findElement(By.xpath("//button[text()='Registrar']"));

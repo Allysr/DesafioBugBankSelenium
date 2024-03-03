@@ -30,10 +30,10 @@ public class Waits {
         }
     }
 
-    public static void fixedWaits(int timeout){
+    public static void fixedWaits(int timeout) {
         try {
-            Sleeper.SYSTEM_SLEEPER.sleep(Duration.ofSeconds(timeout));
-        }catch (InterruptedException e){
+            Thread.sleep(timeout);
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
