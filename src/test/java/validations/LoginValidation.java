@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import pageElements.AccountPage;
 
+import static reports.Relatory.testFail;
+import static reports.Relatory.testPass;
 import static reports.Screenshot.captureScreenshot;
 
 public class LoginValidation {
@@ -22,9 +24,15 @@ public class LoginValidation {
         try {
             String userLoginText = accountPage.getInicialText().getText();
             Assertions.assertEquals("Olá " + user.getName() + ",", userLoginText);
-            captureScreenshot(driver, "loginRealizado-Sucesso");
+            testPass("Login realizado com sucesso.",
+                    "Houve sucesso na realização do login.",
+                    captureScreenshot(driver, "loginRealizado-Sucesso")
+            );
         } catch(AssertionError e){
-            captureScreenshot(driver, "loginRealizado-Falha");
+            testFail("Login com falha.",
+                    "Houve uma falha na realização do login.",
+                    captureScreenshot(driver, "loginRealizado-Falha")
+            );
             throw e;
         }
     }

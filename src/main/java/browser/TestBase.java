@@ -7,6 +7,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.platform.commons.util.PackageUtils;
 import org.openqa.selenium.WebDriver;
 
+import static reports.Relatory.finishRelatory;
+import static reports.Relatory.getRelatory;
+
 public class TestBase {
     private static WebDriver driver;
 
@@ -18,12 +21,13 @@ public class TestBase {
 
     @BeforeEach
     public void setupDriver() {
-
+        getRelatory();
         driver.get("https://bugbank.netlify.app/#");
     }
 
     @AfterEach
     public void teardown() {
+        finishRelatory();
         if (driver != null) {
             DriverFactory.quitDriver();
         }

@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import pageElements.ExtractPage;
 
+import static reports.Relatory.testFail;
+import static reports.Relatory.testPass;
 import static reports.Screenshot.captureScreenshot;
 
 public class ExtractValidation {
@@ -36,8 +38,15 @@ public class ExtractValidation {
             String extractBalance = extractPage.getExtractBalance().getText();
             captureScreenshot(driver, "creditoRecebido-Sucesso");
             Assertions.assertEquals(extractBalance, value);
+            testPass("Credito recebido com sucesso.",
+                    "Houve sucesso no recimento dos créditos.",
+                    captureScreenshot(driver, "creditoRecebido-Sucesso")
+            );
         } catch(AssertionError e){
-            captureScreenshot(driver, "creditoRecebido-Falha");
+            testFail("Credito recebido com falha.",
+                    "Houve uma falha no recebimento do crédito.",
+                    captureScreenshot(driver, "creditoRecebido-Falha")
+            );
             throw e;
         }
 
