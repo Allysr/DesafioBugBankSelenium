@@ -1,23 +1,24 @@
 package validations;
 
+import dataFactory.UserFactory;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
-import pageElements.InitialPage;
+import pageElements.AccountPage;
 
 public class LoginValidation {
 
     WebDriver driver;
 
-    InitialPage initialPage;
+    AccountPage accountPage;
 
     public LoginValidation(WebDriver driver){
         this.driver = driver;
-        this.initialPage = new InitialPage(this.driver);
+        this.accountPage = new AccountPage(this.driver);
 
     }
+    public void loginSuccessValidation(UserFactory user){
+        String userLoginText = accountPage.getInicialText().getText();
+        Assertions.assertEquals("Olá " + user.getName()+ ",", userLoginText );
+    }
 
-//    public void loginAndGetBalance(UserFactory user){
-//        login(user);
-//        initialTask.extractUserBalance(user);
-//        Assertions.assertEquals("Saldo em conta R$ 0,00", initialTask.getBalanceText());
-//    }
 }

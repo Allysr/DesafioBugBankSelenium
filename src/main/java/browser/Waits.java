@@ -18,19 +18,19 @@ public class Waits {
     }
 
     public WebElement visibilityOfElement(By by){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 
     public  WebElement loadElement(WebElement elemento){
         try{
-            return new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.visibilityOf(elemento));
+            return new WebDriverWait(driver, Duration.ofSeconds(40)).until(ExpectedConditions.visibilityOf(elemento));
         }catch (WebDriverException e){
             return elemento;
         }
     }
 
-    public static void fixedWaits(int timeout) {
+    public void fixedWaits(int timeout) {
         try {
             Thread.sleep(timeout);
         } catch (InterruptedException e) {

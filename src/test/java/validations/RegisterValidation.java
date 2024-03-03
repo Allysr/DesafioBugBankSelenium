@@ -22,8 +22,6 @@ public class RegisterValidation {
     public void registerSuccessValidation(UserFactory user){
         String account = "A conta " + user.getAccountNumber() + "-" + user.getId() + " foi criada com sucesso";
         String registerText = registerPage.getModalAccountText().getText();
-
-
         Assertions.assertEquals(account, registerText);
     }
 
