@@ -35,6 +35,7 @@ public class TransferBetweenTwoAccounts extends TestBase {
         transferTask.transfer(anna, 200, "Parabéns!");
         loginTask.login(anna);
         extractTask.verifyExtract();
+
     }
 
 

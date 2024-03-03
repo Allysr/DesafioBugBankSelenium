@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import pageElements.AccountPage;
 
+import static reports.Screenshot.captureScreenshot;
+
 public class LoginValidation {
 
     WebDriver driver;
@@ -17,8 +19,14 @@ public class LoginValidation {
 
     }
     public void loginSuccessValidation(UserFactory user) {
-        String userLoginText = accountPage.getInicialText().getText();
-        Assertions.assertEquals("Olá " + user.getName()+ ",", userLoginText );
+        try {
+            String userLoginText = accountPage.getInicialText().getText();
+            Assertions.assertEquals("Olá " + user.getName() + ",", userLoginText);
+            captureScreenshot(driver, "loginRealizado-Sucesso");
+        } catch(AssertionError e){
+            captureScreenshot(driver, "loginRealizado-Falha");
+            throw e;
+        }
     }
 
 }

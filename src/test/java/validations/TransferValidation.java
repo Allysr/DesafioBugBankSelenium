@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import pageElements.AccountPage;
 import pageElements.TransferPage;
 
+import static reports.Screenshot.captureScreenshot;
+
 public class TransferValidation {
     WebDriver driver;
 
@@ -18,8 +20,15 @@ public class TransferValidation {
     }
 
     public void transferSuccessValidation () {
-        String successText = "Transferencia realizada com sucesso";
-        String transferText = transferPage.getTextTransferPage().getText();
-        Assertions.assertEquals(successText, transferText);
+        try{
+            String successText = "Transferencia realizada com sucesso";
+            String transferText = transferPage.getTextTransferPage().getText();
+            Assertions.assertEquals(successText, transferText);
+            captureScreenshot(driver, "transferenciaRealizada-Sucesso");
+        } catch(AssertionError e){
+            captureScreenshot(driver, "transferenciaRealizada-Falha");
+            throw e;
+        }
+
     }
 }

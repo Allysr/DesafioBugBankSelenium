@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import pageElements.AccountPage;
 
+import static reports.Screenshot.captureScreenshot;
+
 public class AccountValidation {
     WebDriver driver;
 
@@ -15,8 +17,15 @@ public class AccountValidation {
     }
 
     public void accountBalanceValidation() {
-        String value = "Saldo em conta R$ 200,00";
-        String textBalance = accountPage.getBalance().getText();
-        Assertions.assertEquals(value, textBalance);
+        try{
+            String value = "Saldo em conta R$ 200,00";
+            String textBalance = accountPage.getBalance().getText();
+            Assertions.assertEquals(value, textBalance);
+            captureScreenshot(driver, "saldoNaConta-Sucesso");
+        } catch(AssertionError e){
+            captureScreenshot(driver, "saldoNaConta-Falha");
+            throw e;
+        }
+
     }
 }

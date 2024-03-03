@@ -25,6 +25,7 @@ public class LoginTask {
         loginPage.getEmail().sendKeys(user.getEmail());
         loginPage.getPassword().sendKeys(user.getPassword());
         loginPage.getAccessButton().click();
+        waits.fixedWaits(2000);
         loginValidation.loginSuccessValidation(user);
     }
 

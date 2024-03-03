@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import pageElements.RegisterPage;
 
+import static reports.Screenshot.captureScreenshot;
+
 public class RegisterValidation {
 
     private WebDriver driver;
@@ -18,9 +20,16 @@ public class RegisterValidation {
     }
 
     public void registerSuccessValidation(UserFactory user) {
-        String account = "A conta " + user.getAccountNumber() + "-" + user.getId() + " foi criada com sucesso";
-        String registerText = registerPage.getModalAccountText().getText();
-        Assertions.assertEquals(account, registerText);
+        try{
+            String account = "A conta " + user.getAccountNumber() + "-" + user.getId() + " foi criada com sucesso";
+            String registerText = registerPage.getModalAccountText().getText();
+            Assertions.assertEquals(account, registerText);
+            captureScreenshot(driver, "cadastroRealizado-Sucesso");
+        } catch(AssertionError e){
+            captureScreenshot(driver, "cadastroRealizado-Falha");
+            throw e;
+        }
+
     }
 
 }
