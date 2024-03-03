@@ -8,7 +8,6 @@ import org.openqa.selenium.WebElement;
 
 public class ExtractPage {
     WebDriver driver;
-
     Waits waits;
 
     public ExtractPage (WebDriver driver) {
@@ -16,7 +15,7 @@ public class ExtractPage {
         this.waits = new Waits(this.driver);
     }
 
-    public WebElement getExtractBalance(){
+    public WebElement getExtractBalance() {
         return waits.visibilityOfElement(By.id("textBalanceAvailable"));
     }
 }

@@ -11,29 +11,29 @@ public class AccountPage {
     private WebDriver driver;
     private Waits waits;
 
-    public AccountPage(WebDriver driver){
+    public AccountPage(WebDriver driver) {
         this.driver = driver;
         this.waits = new Waits(this.driver);
     }
 
     public WebElement getTransferButton(){
-        return waits.visibilityOfElement(By.id("btn-TRANSFERÊNCIA"));
+        return driver.findElement(By.id("btn-TRANSFERÊNCIA"));
     }
 
     public WebElement getExtractButton(){
-        return waits.visibilityOfElement(By.id("btn-EXTRATO"));
+        return driver.findElement(By.id("btn-EXTRATO"));
     }
 
     public WebElement getExitButton() {
-        return waits.visibilityOfElement(By.id("btnExit"));
+        return driver.findElement(By.id("btnExit"));
     }
 
     public WebElement getBalance() {
-        return driver.findElement(By.id("textBalance"));
+        return waits.visibilityOfElement(By.id("textBalance"));
     }
 
     public WebElement getInicialText(){
-        return  driver.findElement(By.id("textName"));
+        return waits.visibilityOfElement(By.id("textName"));
     }
 
 

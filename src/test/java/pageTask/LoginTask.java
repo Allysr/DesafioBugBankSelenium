@@ -1,5 +1,6 @@
 package pageTask;
 
+import browser.Waits;
 import dataFactory.UserFactory;
 import org.openqa.selenium.WebDriver;
 import pageElements.AccountPage;
@@ -9,23 +10,26 @@ import validations.LoginValidation;
 public class LoginTask {
 
     WebDriver driver;
+    Waits waits;
     LoginPage loginPage;
     LoginValidation loginValidation;
 
-
-    public LoginTask(WebDriver driver){
+    public LoginTask(WebDriver driver) {
         this.driver = driver;
+        this.waits = new Waits(this.driver);
         this.loginPage = new LoginPage(this.driver);
         this.loginValidation = new LoginValidation(this.driver);
     }
 
-    public void login(UserFactory user){
+    public void login(UserFactory user) {
         loginPage.getEmail().sendKeys(user.getEmail());
         loginPage.getPassword().sendKeys(user.getPassword());
         loginPage.getAccessButton().click();
+        loginValidation.loginSuccessValidation(user);
     }
 
-    public void clickButtonRegister(){
+    public void clickButtonRegister() {
+        waits.loadElement(loginPage.getRegisterButton());
         loginPage.getRegisterButton().click();
     }
 

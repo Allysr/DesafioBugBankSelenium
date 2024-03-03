@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 public class TestBase {
     private static WebDriver driver;
 
-    public static WebDriver getDriver(){
+    public static WebDriver getDriver() {
         driver = DriverFactory.getOrCreateDriver(Browser.CHROME);
         return driver;
     }

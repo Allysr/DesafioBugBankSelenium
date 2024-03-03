@@ -10,7 +10,7 @@ public class RegisterPage {
     private WebDriver driver;
     private Waits waits;
 
-    public RegisterPage(WebDriver driver){
+    public RegisterPage(WebDriver driver) {
         this.driver = driver;
         this.waits = new Waits(this.driver);
     }
@@ -26,16 +26,15 @@ public class RegisterPage {
     public WebElement getPasswordConfirmation(){
         return driver.findElement(By.name("passwordConfirmation"));
     }
-    public WebElement getRegisterButton(){
-       return driver.findElement(By.cssSelector("button.style__ContainerButton-sc-1wsixal-0.CMabB.button__child"));
-    }
     public WebElement getToggle() {
         return driver.findElement(By.xpath("//label[@id='toggleAddBalance']"));
     }
     public WebElement getModalAccountText() {
         return waits.visibilityOfElement(By.id("modalText"));
     }
-
+    public WebElement getRegisterButton() {
+        return driver.findElement(By.cssSelector("button.style__ContainerButton-sc-1wsixal-0.CMabB.button__child"));
+    }
     public WebElement getCloseButton(){
         return driver.findElement(By.id("btnCloseModal"));
     }

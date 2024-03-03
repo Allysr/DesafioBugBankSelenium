@@ -10,18 +10,18 @@ public class ExtractValidation {
 
     ExtractPage extractPage;
 
-    public  ExtractValidation (WebDriver driver){
+    public  ExtractValidation (WebDriver driver) {
         this.driver = driver;
         this.extractPage = new ExtractPage(this.driver);
     }
 
-    public void deductedBalanceValidation(){
+    public void deductedBalanceValidation() {
         String value = "R$ 800,00";
         String extractBalance = extractPage.getExtractBalance().getText();
         Assertions.assertEquals(extractBalance, value);
     }
 
-    public void addedBalanceValidation(){
+    public void addedBalanceValidation() {
         String value = "R$ 200,00";
         String extractBalance = extractPage.getExtractBalance().getText();
         Assertions.assertEquals(extractBalance, value);

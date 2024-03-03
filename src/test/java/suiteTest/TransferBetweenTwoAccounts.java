@@ -12,19 +12,21 @@ import static data.Data.userJoana;
 
 public class TransferBetweenTwoAccounts extends TestBase {
 
-    WebDriver driver = getDriver();
-    RegisterTask registerTask = new RegisterTask(this.driver);
-    LoginTask loginTask = new LoginTask(this.driver);
-    AccountTask accountTask = new AccountTask(this.driver);
-    TransferTask transferTask = new TransferTask(this.driver);
-    ExtractTask  extractTask = new ExtractTask(this.driver);
+    private WebDriver driver = getDriver();
+
+    private RegisterTask registerTask = new RegisterTask(this.driver);
+    private LoginTask loginTask = new LoginTask(this.driver);
+    private AccountTask accountTask = new AccountTask(this.driver);
+    private TransferTask transferTask = new TransferTask(this.driver);
+    private ExtractTask  extractTask = new ExtractTask(this.driver);
+
     UserFactory anna = userAnna();
     UserFactory joana = userJoana();
 
 
     @DisplayName("Deve realizar a transferencia entre contas com sucesso")
     @Test
-    public void transferBetweenTwoAccounts(){
+    public void transferBetweenTwoAccounts() {
         registerTask.register(anna,false);
         loginTask.login(anna);
         accountTask.clickExitButton();
@@ -33,7 +35,6 @@ public class TransferBetweenTwoAccounts extends TestBase {
         transferTask.transfer(anna, 200, "Parabéns!");
         loginTask.login(anna);
         extractTask.verifyExtract();
-
     }
 
 

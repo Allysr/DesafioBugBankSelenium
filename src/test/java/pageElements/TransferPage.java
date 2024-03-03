@@ -9,13 +9,11 @@ public class TransferPage {
     private WebDriver driver;
     private Waits waits;
 
-    public TransferPage (WebDriver driver){
+    public TransferPage (WebDriver driver) {
         this.driver = driver;
         this.waits =  new Waits(this.driver);
     }
-    public WebElement getAccountNumber(){
-        return waits.visibilityOfElement(By.name("accountNumber"));
-    }
+
     public WebElement getDigit(){
         return  driver.findElement(By.name("digit"));
     }
@@ -25,20 +23,20 @@ public class TransferPage {
     public WebElement getDescription(){
         return driver.findElement(By.name("description"));
     }
-    public WebElement getButtonTransferNow(){
-        return driver.findElement(By.xpath("//button[text()='Transferir agora']"));
-    }
-    public WebElement getModalText() {
-        return waits.visibilityOfElement(By.id("modalText"));
-    }
-    public WebElement getButtonClose(){
-        return waits.visibilityOfElement(By.id("btnCloseModal"));
+    public WebElement getAccountNumber(){
+        return waits.visibilityOfElement(By.name("accountNumber"));
     }
     public WebElement getTextTransferPage(){
         return waits.visibilityOfElement(By.id("modalText"));
     }
+    public WebElement getButtonTransferNow() {
+        return driver.findElement(By.xpath("//button[text()='Transferir agora']"));
+    }
+    public WebElement getButtonClose(){
+        return driver.findElement(By.id("btnCloseModal"));
+    }
     public WebElement getButtonBack(){
-        return waits.visibilityOfElement(By.id("btnBack"));
+        return driver.findElement(By.id("btnBack"));
     }
 
 

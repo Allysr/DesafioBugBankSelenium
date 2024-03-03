@@ -11,12 +11,10 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
 
-import java.util.concurrent.TimeUnit;
-
 public class DriverFactory {
     private static WebDriver driver;
 
-    private static WebDriver getManagerDriver( Browser type) {
+    private static WebDriver getManagerDriver(Browser type) {
 
         switch (type){
             case CHROME:
@@ -59,15 +57,14 @@ public class DriverFactory {
         return driver;
     }
 
-
-    public static WebDriver getOrCreateDriver(Browser type){
+    public static WebDriver getOrCreateDriver(Browser type) {
         if(driver == null) {
             driver = getManagerDriver(type);
         }
         return driver;
     }
 
-    public static void quitDriver(){
+    public static void quitDriver() {
         if(driver != null) {
             driver.quit();
             driver = null;

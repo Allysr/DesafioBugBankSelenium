@@ -11,14 +11,13 @@ public class TransferTask {
 
     private WebDriver driver;
     private Waits waits;
+
     private TransferPage transferPage;
     private AccountTask accountTask;
     private TransferValidation transferValidation;
-
     private ExtractValidation extractValidation;
 
-
-    public TransferTask(WebDriver driver){
+    public TransferTask(WebDriver driver) {
         this.driver = driver;
         waits = new Waits(this.driver);
         transferPage = new TransferPage(this.driver);
@@ -40,7 +39,6 @@ public class TransferTask {
         waits.loadElement(transferPage.getButtonBack());
         transferPage.getButtonBack().click();
         accountTask.clickExtractButton();
-        waits.fixedWaits(1000);
         extractValidation.deductedBalanceValidation();
         accountTask.clickExitButton();
     }

@@ -8,16 +8,14 @@ import validations.ExtractValidation;
 
 public class ExtractTask {
     WebDriver driver;
-
     Waits waits;
 
     AccountTask accountTask;
     AccountValidation accountValidation;
     ExtractValidation extractValidation;
-
     ExtractPage extractPage;
 
-    public ExtractTask(WebDriver driver){
+    public ExtractTask(WebDriver driver) {
         this.driver = driver;
         this.accountTask = new AccountTask(this.driver);
         this.waits = new Waits(this.driver);
@@ -26,13 +24,11 @@ public class ExtractTask {
         this.extractValidation = new ExtractValidation(this.driver);
     }
 
-    public void verifyExtract(){
+    public void verifyExtract() {
         accountValidation.accountBalanceValidation();
         accountTask.clickExtractButton();
-        waits.loadElement(extractPage.getExtractBalance());
         extractValidation.addedBalanceValidation();
         accountTask.clickExitButton();
-
     }
 
 }

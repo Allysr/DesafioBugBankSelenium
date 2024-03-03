@@ -11,12 +11,12 @@ public class LoginValidation {
 
     AccountPage accountPage;
 
-    public LoginValidation(WebDriver driver){
+    public LoginValidation(WebDriver driver) {
         this.driver = driver;
         this.accountPage = new AccountPage(this.driver);
 
     }
-    public void loginSuccessValidation(UserFactory user){
+    public void loginSuccessValidation(UserFactory user) {
         String userLoginText = accountPage.getInicialText().getText();
         Assertions.assertEquals("Olá " + user.getName()+ ",", userLoginText );
     }

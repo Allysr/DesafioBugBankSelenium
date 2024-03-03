@@ -6,23 +6,28 @@ import pageElements.AccountPage;
 
 public class AccountTask {
     WebDriver driver;
+    Waits waits;
 
     AccountPage accountPage;
 
-    public AccountTask(WebDriver driver){
+    public AccountTask(WebDriver driver) {
         this.driver = driver;
+        this.waits = new Waits(this.driver);
         this.accountPage = new AccountPage(this.driver);
     }
 
-    public void clickExitButton(){
+    public void clickExitButton() {
+        waits.loadElement(accountPage.getExitButton());
         accountPage.getExitButton().click();
     }
 
-    public void clickTransferButton(){
+    public void clickTransferButton() {
+        waits.loadElement(accountPage.getTransferButton());
         accountPage.getTransferButton().click();
     }
 
-    public void clickExtractButton(){
+    public void clickExtractButton() {
+        waits.loadElement(accountPage.getExtractButton());
         accountPage.getExtractButton().click();
     }
 
