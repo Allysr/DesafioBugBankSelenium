@@ -5,27 +5,26 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.openqa.selenium.WebDriver;
 
+import pageElements.RegisterPage;
 import pageTask.RegisterTask;
 
 public class RegisterValidation {
 
     private WebDriver driver;
-
-    private RegisterTask registerTask;
+    private RegisterPage registerPage;
 
 
     public RegisterValidation(WebDriver driver){
         this.driver = driver;
-        this.registerTask = new RegisterTask(this.driver);
+        this.registerPage = new RegisterPage(this.driver);
     }
 
-    public void register(UserFactory user, Boolean balance) throws InterruptedException {
-        registerTask.clickRegisterButton();
-        registerTask.fillRegisterForm(user, balance);
-        registerTask.clickCreateAccountButton();
-        String account = registerTask.extractAccountNumber(user);
-        Assertions.assertEquals("A conta " + account + " foi criada com sucesso", registerTask.getRegisterText());
-        registerTask.clickCloseButton();
+    public void registerSuccessValidation(UserFactory user){
+        String account = "A conta " + user.getAccountNumber() + "-" + user.getId() + " foi criada com sucesso";
+        String registerText = registerPage.getModalAccountText().getText();
+
+
+        Assertions.assertEquals(account, registerText);
     }
 
 }

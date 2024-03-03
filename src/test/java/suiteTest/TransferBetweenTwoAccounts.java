@@ -1,28 +1,24 @@
 package suiteTest;
 
 import browser.TestBase;
-import validations.LoginValidation;
-import validations.RegisterValidation;
 import dataFactory.UserFactory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
+import pageTask.RegisterTask;
+
+import static data.Data.userAnna;
 
 public class TransferBetweenTwoAccounts extends TestBase {
 
     WebDriver driver = getDriver();
-    RegisterValidation register = new RegisterValidation(driver);
-    LoginValidation login = new LoginValidation(driver);
+    RegisterTask registerTask = new RegisterTask(this.driver);
 
-    UserFactory user01 = new UserFactory("Anna@teste.com", "anna", "senha", "senha");
-    UserFactory user02 = new UserFactory("rico@teste.com", "Rico", "senha", "senha");
+    UserFactory user01 = userAnna();
 
     @DisplayName("Deve realizar a transferencia entre contas com sucesso")
     @Test
-    public void transferBetweenTwoAccounts() throws InterruptedException {
-       register.register(user01, false);
-       login.loginAndGetBalance(user01);
-//       login.login(user01);
-
+    public void transferBetweenTwoAccounts(){
+        registerTask.registerUser(user01, false);
     }
 }

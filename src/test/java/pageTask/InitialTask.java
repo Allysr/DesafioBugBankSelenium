@@ -25,7 +25,6 @@ public class InitialTask {
         replaceText = replaceText.replace(",", ".");
         BigDecimal balance = new BigDecimal(replaceText);
         user.setBalance(balance);
-
     }
 
     public String getBalanceText(){
