@@ -45,7 +45,7 @@ public class RegisterTask {
     }
 
     public String extractAccountNumber(UserFactory user){
-        String registerText = registerPage.getModalAccountText().getText();
+        String registerText = getRegisterText();
         String[] removeSpaces = registerText.split(" ");
         String[] removeHyphen = removeSpaces[2].split("-");
 
