@@ -20,7 +20,7 @@ public class AccountValidation {
 
     public void accountBalanceValidation() {
         try{
-            String value = "Saldo em conta R$ 200,00";
+            String value = "Saldo em conta R$ 1.200,00";
             String textBalance = accountPage.getBalance().getText();
             Assertions.assertEquals(value, textBalance);
             testPass("Saldo na conta recebido com sucesso.",

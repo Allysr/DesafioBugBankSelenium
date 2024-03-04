@@ -37,6 +37,7 @@ public class RegisterTask {
         registerValidation.registerSuccessValidation(user);
         waits.loadElement(registerPage.getCloseButton());
         registerPage.getCloseButton().click();
+        refreshPage();
     }
 
     public void extractAccountNumber(UserFactory user) {
@@ -58,6 +59,10 @@ public class RegisterTask {
             registerPage.getToggle().click();
             waits.fixedWaits(2000);
         }
+    }
+
+    public void refreshPage(){
+      driver.navigate().refresh();
     }
 
 

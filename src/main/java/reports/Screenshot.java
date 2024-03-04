@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import java.io.File;
 
 import static utils.DateFormater.formattedDate;
+import static utils.DateFormater.formattedDateAndHour;
 
 public class Screenshot {
 
@@ -20,9 +21,11 @@ public class Screenshot {
         try {
             TakesScreenshot scrShot = ((TakesScreenshot) driver);
             File SrcFile = scrShot.getScreenshotAs(OutputType.FILE);
+            String dateAndHour = formattedDateAndHour();
             String date = formattedDate();
 
-            String destinationFile = path + File.separator + "reports" + File.separator + "screenshots_" + date + File.separator + name + "_" + date + ".png";
+
+            String destinationFile = path + File.separator + "reports" + File.separator + "screenshots_" + date + File.separator + name + "_" + dateAndHour + ".png";
 
             File targetFile = new File(destinationFile);
 

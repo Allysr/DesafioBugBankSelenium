@@ -24,9 +24,15 @@ public class ExtractValidation {
             String value = "R$ 800,00";
             String extractBalance = extractPage.getExtractBalance().getText();
             Assertions.assertEquals(extractBalance, value);
-            captureScreenshot(driver, "debitoRealizado-Sucesso");
+            testPass("Débito realizado com sucesso.",
+                    "Houve sucesso na realização do débito.",
+                    captureScreenshot(driver, "debitoRealizado-Sucesso")
+            );
         } catch(AssertionError e){
-            captureScreenshot(driver, "debitoRealizado-Falha");
+            testFail("Débito com falha.",
+                    "Houve uma falha na realização do débito.",
+                    captureScreenshot(driver, "debitoRealizado-Falha")
+            );
             throw e;
         }
 
@@ -34,9 +40,8 @@ public class ExtractValidation {
 
     public void addedBalanceValidation() {
         try{
-            String value = "R$ 200,00";
+            String value = "R$ 1.200,00";
             String extractBalance = extractPage.getExtractBalance().getText();
-            captureScreenshot(driver, "creditoRecebido-Sucesso");
             Assertions.assertEquals(extractBalance, value);
             testPass("Credito recebido com sucesso.",
                     "Houve sucesso no recimento dos créditos.",

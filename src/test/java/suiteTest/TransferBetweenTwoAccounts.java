@@ -27,9 +27,7 @@ public class TransferBetweenTwoAccounts extends TestBase {
     @DisplayName("Deve realizar a transferencia entre contas com sucesso")
     @Test
     public void transferBetweenTwoAccounts() {
-        registerTask.register(anna,false);
-        loginTask.login(anna);
-        accountTask.clickExitButton();
+        registerTask.register(anna,true);
         registerTask.register(joana,true);
         loginTask.login(joana);
         transferTask.transfer(anna, 200, "Parabéns!");
