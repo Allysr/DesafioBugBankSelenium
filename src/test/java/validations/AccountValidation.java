@@ -23,13 +23,11 @@ public class AccountValidation {
             String value = "Saldo em conta R$ 1.200,00";
             String textBalance = accountPage.getBalance().getText();
             Assertions.assertEquals(value, textBalance);
-            testPass("Saldo na conta recebido com sucesso.",
-                    "Houve sucesso no recebimento do saldo.",
+            testPass("Houve sucesso no recebimento do saldo.",
                     captureScreenshot(driver, "saldoNaConta-Sucesso")
             );
         } catch(AssertionError e){
-            testFail("Saldo na conta com falha.",
-                    "Houve uma falha no recebimento do saldo.",
+            testFail("Houve uma falha no recebimento do saldo.",
                     captureScreenshot(driver, "saldoNaConta-Falha")
             );
             throw e;

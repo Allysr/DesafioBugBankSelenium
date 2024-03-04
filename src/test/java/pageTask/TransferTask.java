@@ -7,6 +7,8 @@ import pageElements.TransferPage;
 import validations.ExtractValidation;
 import validations.TransferValidation;
 
+import static reports.Relatory.createTest;
+
 public class TransferTask {
 
     private WebDriver driver;
@@ -27,6 +29,8 @@ public class TransferTask {
     }
 
     public void transfer(UserFactory user, int value, String description) {
+        createTest("Transfêrencia entre contas",
+                "Deve transferir o saldo de R$" + value + " para o(a) " + user.getName());
         accountTask.clickTransferButton();
         transferPage.getAccountNumber().sendKeys(user.getAccountNumber());
         transferPage.getDigit().sendKeys(user.getId());

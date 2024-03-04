@@ -9,6 +9,7 @@ import pageTask.*;
 
 import static data.Data.userAnna;
 import static data.Data.userJoana;
+import static reports.Relatory.createTest;
 
 public class TransferBetweenTwoAccounts extends TestBase {
 

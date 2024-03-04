@@ -7,6 +7,8 @@ import org.openqa.selenium.interactions.Actions;
 import pageElements.RegisterPage;
 import validations.RegisterValidation;
 
+import static reports.Relatory.createTest;
+
 public class RegisterTask {
 
     private WebDriver driver;
@@ -25,6 +27,7 @@ public class RegisterTask {
     }
 
     public void register(UserFactory user, Boolean balance) {
+        createTest("Cadastro " + user.getName(), "Deve cadastrar o(a) usuário(a) " + user.getName());
         loginTask.clickButtonRegister();
         registerPage.getEmail().sendKeys(user.getEmail());
         registerPage.getName().sendKeys(user.getName());

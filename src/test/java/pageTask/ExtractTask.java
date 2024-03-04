@@ -6,6 +6,8 @@ import pageElements.ExtractPage;
 import validations.AccountValidation;
 import validations.ExtractValidation;
 
+import static reports.Relatory.createTest;
+
 public class ExtractTask {
     WebDriver driver;
     Waits waits;
@@ -25,6 +27,7 @@ public class ExtractTask {
     }
 
     public void verifyExtract() {
+        createTest("Validar saldo na conta", "Deve validar o saldo na conta");
         accountValidation.accountBalanceValidation();
         accountTask.clickExtractButton();
         extractValidation.addedBalanceValidation();

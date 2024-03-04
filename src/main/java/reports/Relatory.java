@@ -1,6 +1,7 @@
 package reports;
 
 import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
@@ -13,6 +14,7 @@ public class Relatory {
 
     public static ExtentSparkReporter spark;
     public static ExtentReports extent;
+    public static ExtentTest test;
     public static final String path = System.getProperty("user.dir");
 
     public static void relatoryConfiguration() {
@@ -36,20 +38,17 @@ public class Relatory {
         return extent;
     }
 
-
-    public static void testPass (String name, String description , Media capture){
-        System.out.println(capture.getPath());
-
-        extent.createTest(name, description)
-                .addScreenCaptureFromPath(capture.getPath())
-                .pass(MediaEntityBuilder.createScreenCaptureFromPath(capture.getPath()).build());
+    public static ExtentTest createTest(String name, String description){
+        test = extent.createTest(name, description);
+        return test;
     }
 
-    public static void testFail (String name, String description , Media capture){
-        System.out.println(capture.getPath());
-        extent.createTest(name, description)
-                .addScreenCaptureFromPath(capture.getPath())
-                .fail(MediaEntityBuilder.createScreenCaptureFromPath(capture.getPath()).build());
+    public static void testPass ( String description , Media capture){
+        test.pass(description, capture);
+    }
+
+    public static void testFail ( String description , Media capture){
+        test.fail(description, capture);
     }
 
     public static void finishRelatory(){

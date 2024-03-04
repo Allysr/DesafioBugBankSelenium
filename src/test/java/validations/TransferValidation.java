@@ -26,13 +26,11 @@ public class TransferValidation {
             String successText = "Transferencia realizada com sucesso";
             String transferText = transferPage.getTextTransferPage().getText();
             Assertions.assertEquals(successText, transferText);
-            testPass("Transferencia realizada com sucesso.",
-                    "Houve sucesso na realização da transferencia.",
+            testPass("Houve sucesso na realização da transferencia.",
                     captureScreenshot(driver, "transferenciaRealizada-Sucesso")
             );
         } catch(AssertionError e){
-            testFail("Transferencia com falha.",
-                    "Houve uma falha na realização da transferência.",
+            testFail("Houve uma falha na realização da transferência.",
                     captureScreenshot(driver, "transferenciaRealizada-Falha")
             );
             throw e;

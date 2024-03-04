@@ -26,13 +26,11 @@ public class RegisterValidation {
             String account = "A conta " + user.getAccountNumber() + "-" + user.getId() + " foi criada com sucesso";
             String registerText = registerPage.getModalAccountText().getText();
             Assertions.assertEquals(account, registerText);
-            testPass("Cadastro realizado com sucesso.",
-                    "Houve sucesso na realização do cadastro.",
+            testPass("Houve sucesso na realização do cadastro.",
                     captureScreenshot(driver, "cadastroRealizado-Sucesso")
             );
         } catch(AssertionError e){
-            testFail("Cadastro com falha.",
-                    "Houve uma falha na realização do cadastro.",
+            testFail("Houve uma falha na realização do cadastro.",
                     captureScreenshot(driver, "cadastroRealizado-Falha")
             );
             throw e;

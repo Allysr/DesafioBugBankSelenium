@@ -24,12 +24,12 @@ public class LoginValidation {
         try {
             String userLoginText = accountPage.getInicialText().getText();
             Assertions.assertEquals("Olá " + user.getName() + ",", userLoginText);
-            testPass("Login realizado com sucesso.",
+            testPass(
                     "Houve sucesso na realização do login.",
                     captureScreenshot(driver, "loginRealizado-Sucesso")
             );
         } catch(AssertionError e){
-            testFail("Login com falha.",
+            testFail(
                     "Houve uma falha na realização do login.",
                     captureScreenshot(driver, "loginRealizado-Falha")
             );

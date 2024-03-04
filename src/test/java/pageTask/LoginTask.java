@@ -7,6 +7,8 @@ import pageElements.AccountPage;
 import pageElements.LoginPage;
 import validations.LoginValidation;
 
+import static reports.Relatory.createTest;
+
 public class LoginTask {
 
     WebDriver driver;
@@ -22,6 +24,7 @@ public class LoginTask {
     }
 
     public void login(UserFactory user) {
+        createTest("Login " + user.getName(), "Deve logar na conta do(a) " + user.getName());
         loginPage.getEmail().sendKeys(user.getEmail());
         loginPage.getPassword().sendKeys(user.getPassword());
         loginPage.getAccessButton().click();
