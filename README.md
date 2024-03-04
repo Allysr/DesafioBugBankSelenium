@@ -8,6 +8,11 @@
 ### 🔖 Objetivo
 O objetivo desses testes é verificar a funcionalidade do sistema de cadastro de contas e de transferência de saldo do Banco BugBank de forma automatizada e gerar um relatório dos testes realizados.
 
+### Caso de teste
+1. Acessar o site do BugBank;
+2. Criar duas contas com Saldo e salvar os seus dados.
+3. Acessar uma conta e realizar uma transfêrencia de valor para a outra.
+4. Validar a saída e entrada das contas envolvidas.
 
 ### Tecnologias
 Projeto criado com:
@@ -29,6 +34,6 @@ executar a suite de teste "transferBetweenTroAccounts"
 
 
 ### Relatório gerado
-![Relátorio](https://i.imgur.com/bSJjhcU.png)
+![Relátorio](https://i.imgur.com/zAqlui0.png)
 
 #### Site utilizado para os testes: [Bugbank](https://bugbank.netlify.app/#)
