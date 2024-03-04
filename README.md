@@ -4,14 +4,8 @@
 > para simular o processo de trânsferencia entre coisas, para isso foi realizado o cadastro de duas contas no site de teste BugBank, seguido pelo acesso a uma das contas
 > e pela realização de transferência de saldo para a outra.
 
-### 🔖 Conteudo:
-* [Objetivo](###objetivo)
-* [Tecnologias](###tecnologias)
-* [Executando o projeto](###Executando o projeto)
-* [Testes bugbank](###Testes bugbank)
-* [Relatório gerado](###Relatório gerado)
 
-###  Objetivo
+### 🔖 Objetivo
 O objetivo desses testes é verificar a funcionalidade do sistema de cadastro de contas e de transferência de saldo do Banco BugBank de forma automatizada e gerar um relatório dos testes realizados.
 
 
