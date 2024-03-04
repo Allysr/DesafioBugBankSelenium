@@ -34,6 +34,6 @@ executar a suite de teste "transferBetweenTroAccounts"
 
 
 ### Relatório gerado
-![Relátorio](https://i.imgur.com/zAqlui0.png)
+![Relátorio](https://i.imgur.com/meGxKwl.png)
 
 #### Site utilizado para os testes: [Bugbank](https://bugbank.netlify.app/#)
